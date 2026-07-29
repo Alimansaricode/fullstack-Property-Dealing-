@@ -1,0 +1,66 @@
+.contacta{
+    width: 100%;
+    padding-top: 100px;
+    background-color: white;
+}
+.contacta form{
+
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.contacta h1{
+    font-size: 30px;
+    font-weight: 300px;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+}
+
+.contacta form input {
+    width: 30%;
+    height: 50px;
+    padding: 10px 20px;
+      background-color: white;
+    border: 2px solid rgb(26, 24, 24);
+    color: rgb(234, 228, 228);
+    font-size: medium;
+    font-weight: 400;
+}
+
+.contacta form textarea {
+    height: 100px;
+    width: 30%;
+    padding: 10px 20px;
+      background-color: white;
+    border: 2px solid rgb(26, 24, 24);
+    color: rgb(205, 189, 189);
+    font-size: medium;
+    font-weight: 400;
+}
+
+.contacta form button{
+    width: 110px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+
+@media (max-width:750px) {
+    .contacta form input{
+        height: 55px;
+        width: 80%;
+
+    }
+    .contacta form textarea{
+        height: 150px;
+        width: 60%;
+    }
+}
