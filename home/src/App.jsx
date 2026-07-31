@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Nav from "./pages/Nav";
 import Home from "./pages/Home";
@@ -25,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/buy" element={<Buy />} />
-          <Route path="/rent" element={<Rent />} />
+        <Route path="/rent" element={<Rent />} />
           <Route path="/about" element={<About />} />
         </Routes>
 

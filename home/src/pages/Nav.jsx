@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+const token = localStorage.getItem("accessToken");
 
 function Nav({ onLoginClick, onSignupClick }) {
   const navigate = useNavigate();
@@ -16,7 +17,12 @@ console.log("Navbar Name:", userName);
     navigate("/");
     window.location.reload();
   };
-
+const handleRentClick = (e) => {
+    if (!token) {
+        e.preventDefault();      // Rent Page पर मत जाओ
+        onLoginClick();          // Login Popup खोलो
+    }
+};
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md shadow-md">
       <div className="navbar max-w-7xl mx-auto px-6">
@@ -82,14 +88,15 @@ console.log("Navbar Name:", userName);
               </Link>
             </li>
 
-            <li>
-              <Link
-                to="/rent"
-                className="hover:bg-blue-600 hover:text-white rounded-lg"
-              >
-                Rent
-              </Link>
-            </li>
+           <li>
+  <Link
+    to="/rent"
+    onClick={handleRentClick}
+    className="hover:bg-blue-600 hover:text-white rounded-lg"
+  >
+    Rent
+  </Link>
+</li>
 
             <li>
               <Link
