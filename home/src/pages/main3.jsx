@@ -4,7 +4,7 @@ import imagee3 from '../assets/imagee1.png'
 import imagee1 from '../assets/imagee3.png'
 import { Link } from 'react-router-dom'
 
-function main3() {
+function Main3() {
   return (
 
     <div className='w-full h-screenflex items-center justify-start flex max-lg:flex-col gap-10 px-10 py-10'>
