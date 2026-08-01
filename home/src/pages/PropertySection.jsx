@@ -48,4 +48,4 @@ function PropertySection() {
   ) 
 }
 
-export default main3
+export default PropertySection
