@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from './Slider.jsx'
 import Main from './Main.jsx'
 import Main2 from './Main2.jsx'
-import Main3 from "./HomeSection3.jsx";
+import PropertySection from './PropertySection.jsx'
 import Footer from '../Footer/Footer.jsx'
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
       <Slider/>
       <Main/>
       <Main2/>
-      <Main3/>
+      <PropertySection/>
       <Footer/>
     </div>
   )
