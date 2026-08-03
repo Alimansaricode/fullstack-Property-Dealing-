@@ -6,19 +6,19 @@ import { toast } from "react-toastify";
 function LoginForm({ onSuccess, onClose, openSignup }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+const [loading, setLoading] = useState(false);
 
   
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+  setLoading(true);
+
   try {
     const response = await api.post("/login", {
       email,
       password,
     });
-
-    console.log("Response:", response.data);
 
     if (response.data.message !== "Login Successful") {
       toast.error(response.data.message);
@@ -29,17 +29,17 @@ function LoginForm({ onSuccess, onClose, openSignup }) {
     localStorage.setItem("refreshToken", response.data.refresh_token);
     localStorage.setItem("userName", response.data.user.name);
 
-    console.log("Saved Name:", localStorage.getItem("userName"));
-
     toast.success("Login Successful");
 
     if (onClose) onClose();
     if (onSuccess) onSuccess();
 
     navigate("/");
+
   } catch (error) {
-    console.log(error);
     toast.error(error.response?.data?.detail || error.message);
+  } finally {
+    setLoading(false);
   }
 };
 
@@ -74,14 +74,18 @@ function LoginForm({ onSuccess, onClose, openSignup }) {
     />
   </div>
 
-  <button
-    type="button"
-    onClick={handleLogin}
-    className="w-full py-3 rounded-xl bg-blue-600 text-white
-               font-semibold hover:bg-blue-700 transition duration-300"
-  >
-    Login
-  </button>
+ <button
+  type="button"
+  onClick={handleLogin}
+  disabled={loading}
+  className={`w-full py-3 rounded-lg font-semibold transition ${
+    loading
+      ? "bg-gray-500 text-white cursor-not-allowed"
+      : "bg-blue-600 text-white hover:bg-blue-700"
+  }`}
+>
+  {loading ? "Please Wait..." : "Login"}
+</button>
 
   <p className="text-center text-gray-600">
     Don't have an account?{" "}

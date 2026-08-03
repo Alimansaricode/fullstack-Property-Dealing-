@@ -5,8 +5,10 @@ function SignupForm({ onClose, openLogin }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSignup = async () => {
+     setLoading(true);
     try {
       const response = await api.post("/signup", {
         name,
@@ -52,12 +54,14 @@ function SignupForm({ onClose, openLogin }) {
   className="w-full px-4 py-3 mb-4 bg-white text-black placeholder-gray-400 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
 />
 
-      <button
-        onClick={handleSignup}
-        className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700"
-      >
-        Signup
-      </button>
+     <button
+  type="button"
+  onClick={handleSignup}
+  disabled={loading}
+  className="w-full bg-blue-600 text-white py-3 rounded-lg disabled:opacity-50"
+>
+  {loading ? "Please Wait..." : "Signup"}
+</button>
       <p className="text-center mt-4">
   Already have an account?{" "}
   <button

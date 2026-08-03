@@ -2,7 +2,7 @@
 from controllers.auth_controller import filter_users
 from fastapi import Query
 from controllers.auth_controller import sort_users
-from fastapi import Query
+
 from controllers.auth_controller import search_users
 from controllers.auth_controller import get_profile
 from fastapi import APIRouter, Depends
@@ -15,7 +15,7 @@ from controllers.auth_controller import update_user
 from controllers.auth_controller import delete_user
 from models.refresh_model import RefreshToken
 from controllers.auth_controller import refresh_access_token
-from controllers.auth_controller import logout
+from controllers.auth_controller import logout 
 from controllers.auth_controller import get_all_users
 router = APIRouter()
 from fastapi import Query

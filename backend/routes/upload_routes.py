@@ -27,10 +27,7 @@ def upload_file(
 
     image_path = f"uploads/{file.filename}"
 
-    update_profile_image(
-        user["email"],
-        image_path
-    )
+    update_profile_image(user["email"], image_path)
 
     return {
         "message": "Profile Image Uploaded",
